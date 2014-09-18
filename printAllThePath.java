@@ -9,12 +9,16 @@ public class checkValue {
 		TreeNode t4 = new TreeNode(7);
 		TreeNode t5 = new TreeNode(12);
 		TreeNode t6 = new TreeNode(20);
+		TreeNode t7 = new TreeNode(-27);
+		TreeNode t8 = new TreeNode(27);
 		root.left = t1;
 		root.right = t2;
 		t1.left = t3;
 		t1.right = t4;
 		t2.left = t5;
 		t2.right = t6;
+		t4.left = t7;
+		t7.left = t8;
 		int target = 27;
 		Queue<TreeNode> s = new LinkedList<TreeNode>();
 		s.offer (root);
@@ -25,26 +29,25 @@ public class checkValue {
 			checkValue(temp,target,result);
 			if (temp.left != null){
 				s.offer(temp.left);
-	}
+            }
 			if (temp.right != null){
 				s.offer(temp.right);
-	}
+            }
 		}
 		
 	}
 	public static void checkValue(TreeNode root, int target,ArrayList<Integer> result){
-		if(target < 0){
+        
+		if(root == null){
 			return ;
 		}
 		if(target== root.val){
-	
+            
 			for(int i = 0;i < result.size();i++){
 				System.out.print(result.get(i));
 			}
 			System.out.print(target);
-			result = new ArrayList<Integer>();
 			System.out.println("");
-			return ;
 		}
 		if(root == null){
 			return ;
